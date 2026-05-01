@@ -38,11 +38,16 @@
         <div class="logo">
             <i class="fa-solid fa-atom"></i> SciMaster
         </div>
-        <ul class="nav-links">
-            <li><a href="#" onclick="showSection('home', event)" class="active" id="nav-home">Home</a></li>
-            <li><a href="#" onclick="showSection('learn', event)" id="nav-learn">Learning Hub</a></li>
-            <li><a href="#" onclick="showSection('exam', event)" id="nav-exam">Exam Center</a></li>
-        </ul>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <button id="nav-back-btn" class="btn btn-secondary hidden" onclick="goBack(event)" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home', event)" class="active" id="nav-home">Home</a></li>
+                <li><a href="#" onclick="showSection('learn', event)" id="nav-learn">Learning Hub</a></li>
+                <li><a href="#" onclick="showSection('exam', event)" id="nav-exam">Exam Center</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main class="container">

@@ -1,6 +1,13 @@
 // Navigation Logic
-function showSection(sectionId, event) {
+let sectionHistory = [];
+let currentSectionId = 'home';
+
+function showSection(sectionId, event, isBack = false) {
     if (event) event.preventDefault();
+    
+    if (!isBack && currentSectionId !== sectionId) {
+        sectionHistory.push(currentSectionId);
+    }
     
     // Update navigation active state
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -21,6 +28,28 @@ function showSection(sectionId, event) {
     setTimeout(() => {
         targetSection.classList.add('active');
     }, 10);
+    
+    currentSectionId = sectionId;
+    updateBackButton();
+}
+
+function updateBackButton() {
+    const backBtn = document.getElementById('nav-back-btn');
+    if (backBtn) {
+        if (sectionHistory.length > 0) {
+            backBtn.classList.remove('hidden');
+        } else {
+            backBtn.classList.add('hidden');
+        }
+    }
+}
+
+function goBack(event) {
+    if (event) event.preventDefault();
+    if (sectionHistory.length > 0) {
+        const prevSection = sectionHistory.pop();
+        showSection(prevSection, null, true);
+    }
 }
 
 // Learning Hub Accordion Logic
