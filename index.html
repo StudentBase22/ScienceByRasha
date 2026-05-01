@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciMaster | Scientific Research Methods</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card glass-panel text-center">
+            <i class="fa-solid fa-lock" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+            <h2>Access Restricted</h2>
+            <p>Please enter the password to view this content.</p>
+            <div style="margin: 1.5rem 0;">
+                <input type="password" id="site-password" placeholder="Enter Password" onkeypress="handleLoginKeyPress(event)" style="padding: 10px; width: 80%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; margin-bottom: 1rem; outline: none; font-family: 'Outfit', sans-serif;">
+                <p id="login-error" class="text-danger hidden" style="font-size: 0.9rem; margin-top: -0.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-triangle-exclamation"></i> Incorrect password.</p>
+            </div>
+            <button class="btn btn-primary" onclick="verifyPassword()">Unlock</button>
+        </div>
+    </div>
+
+    <div id="app-content" style="display: none;">
+
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fa-solid fa-atom"></i> SciMaster
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showSection('home', event)" class="active" id="nav-home">Home</a></li>
+            <li><a href="#" onclick="showSection('learn', event)" id="nav-learn">Learning Hub</a></li>
+            <li><a href="#" onclick="showSection('exam', event)" id="nav-exam">Exam Center</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="view-section active">
+            <div class="hero">
+                <h1 class="glitch" data-text="Master Scientific Research">Master Scientific Research</h1>
+                <p class="subtitle">Explore the foundations of scientific enquiry, research design, and methodology.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showSection('learn', event)">
+                        <i class="fa-solid fa-book-open"></i> Start Learning
+                    </button>
+                    <button class="btn btn-secondary" onclick="showSection('exam', event)">
+                        <i class="fa-solid fa-brain"></i> Take the Exam
+                    </button>
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-flask"></i>
+                    <h3>Structured Units</h3>
+                    <p>Comprehensive summaries of research concepts, problem formulation, and design strategies.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <h3>Interactive Testing</h3>
+                    <p>Test your knowledge with MCQs, True/False, and Fill-in-the-Blanks questions.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Instant Feedback</h3>
+                    <p>Get real-time scoring and review your answers to improve your understanding.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Hub Section -->
+        <section id="learn" class="view-section hidden">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-book-journal-whills"></i> Learning Hub</h2>
+                <p>Review the core concepts before taking the exam.</p>
+            </div>
+
+            <div class="unit-container">
+                <!-- Module 1: Fundamentals -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-fundamentals')">
+                        <h3><i class="fa-solid fa-microscope" style="color: var(--primary); margin-right: 10px;"></i>
+                            Module 1: Fundamentals of Research</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-fundamentals">
+                        <div class="content-block">
+                            <h4>1) What is Research?</h4>
+                            <p>Research is a systematic investigation process used to discover new knowledge, solve
+                                problems, answer questions, and understand phenomena.</p>
+                            <div class="key-points">
+                                <strong>Definitions:</strong>
+                                <ul>
+                                    <li><strong>Kerlinger:</strong> Research is a systematic, controlled, empirical, and
+                                        critical investigation of natural phenomena.</li>
+                                    <li><strong>Babbie:</strong> Scientific inquiry is how scientists ask questions,
+                                        investigate, gather evidence, and propose explanations.</li>
+                                    <li><strong>Basley & Clover:</strong> Research is obtaining accurate answers to
+                                        important questions using scientific methods.</li>
+                                </ul>
+                            </div>
+                            <p><strong>Features:</strong> Scientific, Systematic, Controlled, Empirical, Critical,
+                                Problem-solving oriented, Knowledge-building.</p>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>2) Research and Knowledge</h4>
+                            <p>Knowledge is information collected by humans over time. Information becomes knowledge
+                                when it is Organized, Structured, Given meaning, and Used for understanding.</p>
+                            <div class="alert-box">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <span><strong>Important:</strong> Every science is knowledge, but not every knowledge is
+                                    science.</span>
+                            </div>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>3) & 4) Purposes of Research</h4>
+                            <p>General purposes: Get new facts, understand behavior, answer questions, solve problems,
+                                evaluate alternatives, predict outcomes.</p>
+                            <div class="grid-cards">
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-compass text-primary"></i>
+                                    <h5>Exploration</h5>
+                                    <p>Used when info is limited. Explores ideas, builds foundation.</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-camera text-primary"></i>
+                                    <h5>Description</h5>
+                                    <p>Answers "What?". Identifies patterns, records characteristics.</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                                    <h5>Explanation</h5>
+                                    <p>Answers "Why?". The central goal! Finds cause-effect relationships.</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-chart-line text-primary"></i>
+                                    <h5>Prediction</h5>
+                                    <p>Answers "What will happen?". Forecasts outcomes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>5) & 6) Why Conduct Research & Importance</h4>
+                            <div class="tags-container">
+                                <span class="tag">Get Degrees</span>
+                                <span class="tag">Solve Problems</span>
+                                <span class="tag">Intellectual Enjoyment</span>
+                                <span class="tag">Service to Society</span>
+                                <span class="tag">Business Planning</span>
+                                <span class="tag">Technology Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Scientific Concepts & Reasoning -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-concepts')">
+                        <h3><i class="fa-solid fa-brain" style="color: var(--secondary); margin-right: 10px;"></i>
+                            Module 2: Scientific Concepts & Reasoning</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-concepts">
+                        <div class="content-block">
+                            <h4>7) Important Scientific Concepts</h4>
+                            <div style="overflow-x: auto;">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Concept</th>
+                                            <th>Meaning</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Fact</strong></td>
+                                            <td>Proven observation</td>
+                                            <td>Confirmed by repeated observation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Hypothesis</strong></td>
+                                            <td>Testable assumption</td>
+                                            <td>Starting point of investigation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Theory</strong></td>
+                                            <td>Explains why</td>
+                                            <td>Verified explanation of natural phenomenon</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Law</strong></td>
+                                            <td>Predicts what</td>
+                                            <td>Statement that summarizes observations</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>8) & 9) Comparisons</h4>
+                            <div class="comparison-grid">
+                                <div class="compare-box">
+                                    <h5>Prediction vs Explanation</h5>
+                                    <ul class="styled-list">
+                                        <li><strong>Prediction:</strong> Future, forecasts results. (e.g. Sales will
+                                            increase)</li>
+                                        <li><strong>Explanation:</strong> Why or how, focuses on reasons. (e.g. Sales
+                                            increased because of marketing)</li>
+                                    </ul>
+                                </div>
+                                <div class="compare-box">
+                                    <h5>Hypothesis vs Prediction</h5>
+                                    <ul class="styled-list">
+                                        <li><strong>Hypothesis:</strong> Testable explanation. (e.g. Study more = score
+                                            better)</li>
+                                        <li><strong>Prediction:</strong> Expected result. (e.g. Studying 5 hours =
+                                            higher marks)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>10) Inductive vs Deductive Reasoning</h4>
+                            <div class="reasoning-container">
+                                <div class="reasoning-step">
+                                    <div class="badge">Inductive</div>
+                                    <p>Specific <i class="fa-solid fa-arrow-right" style="margin: 0 10px;"></i> General
+                                    </p>
+                                    <small style="color: var(--text-muted);">Observations → General Rules →
+                                        Predictions</small>
+                                </div>
+                                <div class="reasoning-step">
+                                    <div class="badge" style="background: var(--secondary);">Deductive</div>
+                                    <p>General <i class="fa-solid fa-arrow-right" style="margin: 0 10px;"></i> Specific
+                                    </p>
+                                    <small style="color: var(--text-muted);">Theory → Applied to cases → Tests
+                                        hypotheses</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Process & Researcher -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-process')">
+                        <h3><i class="fa-solid fa-list-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Module 3: The Research Process</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-process">
+                        <div class="content-block">
+                            <h4>11) & 12) Research Process & Components</h4>
+                            <div class="timeline">
+                                <div class="time-step">1. Topic Selection & Problem Statement</div>
+                                <div class="time-step">2. Research Design</div>
+                                <div class="time-step">3. Data Collection</div>
+                                <div class="time-step">4. Data Analysis</div>
+                                <div class="time-step">5. Report Writing</div>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Components:</strong> Researcher, Topic, Design, Tools.
+                            </p>
+                        </div>
+                        <div class="content-block">
+                            <h4>13) Characteristics of a Good Researcher</h4>
+                            <div class="tags-container">
+                                <span class="tag"
+                                    style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Curiosity</span>
+                                <span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Critical
+                                    thinking</span>
+                                <span class="tag"
+                                    style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Creativity</span>
+                                <span class="tag"
+                                    style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Objectivity</span>
+                                <span class="tag"
+                                    style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Collaboration</span>
+                                <span class="tag"
+                                    style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">Persistence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: The Research Problem -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-problem')">
+                        <h3><i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b; margin-right: 10px;"></i>
+                            Module 4: The Research Problem</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-problem">
+                        <div class="content-block">
+                            <h4>14) What is it?</h4>
+                            <p>A specific issue, gap, or unanswered question that research tries to solve. Shows the
+                                difference between known and unknown.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>15) Types of Research Problems</h4>
+                            <div class="comparison-grid">
+                                <div class="compare-box" style="border-top-color: #f59e0b;">
+                                    <h5 style="color: #f59e0b;">Practical Problems</h5>
+                                    <p><strong>Goal:</strong> Create change</p>
+                                    <p><strong>Examples:</strong> High turnover, poor performance</p>
+                                    <p><strong>Found via:</strong> Workplace discussions, reports</p>
+                                </div>
+                                <div class="compare-box" style="border-top-color: #f59e0b;">
+                                    <h5 style="color: #f59e0b;">Theoretical Problems</h5>
+                                    <p><strong>Goal:</strong> Expand knowledge</p>
+                                    <p><strong>Examples:</strong> Income inequality, unknown relationships</p>
+                                    <p><strong>Found via:</strong> Literature, theories, gaps</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5: Topic Selection -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-topic')">
+                        <h3><i class="fa-solid fa-lightbulb" style="color: #8b5cf6; margin-right: 10px;"></i> Module 5:
+                            Topic Selection</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-topic">
+                        <div class="content-block">
+                            <h4>16) & 19) Choosing a Topic</h4>
+                            <p>Base it on: Interest, Knowledge, Skills, Feasibility, Available Data, Time, Contribution.
+                            </p>
+                            <div class="alert-box"
+                                style="background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3); color: #c4b5fd;">
+                                <i class="fa-solid fa-circle-question"></i>
+                                <span><strong>Ask Yourself:</strong> Am I interested? Can I do it? Is data/literature
+                                    available? Do I have time?</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>17) & 18) Steps & Sources</h4>
+                            <p><strong>Sources:</strong> Observation, Discussion, Literature, Workplace, Brainstorming.
+                            </p>
+                            <ul class="styled-list" style="margin-top: 1rem;">
+                                <li>Be curious & observe</li>
+                                <li>Read & talk to colleagues</li>
+                                <li>Find current studies</li>
+                                <li>Narrow the topic</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>20) Narrowing Topic Example</h4>
+                            <div class="timeline" style="border-left-color: #8b5cf6;">
+                                <div class="time-step" style="--dot-color: #8b5cf6;">Broad: Web Search Engines</div>
+                                <div class="time-step" style="--dot-color: #8b5cf6;">Narrow: Document Classification
+                                </div>
+                                <div class="time-step" style="--dot-color: #8b5cf6;">Specific Problem: Relationship
+                                    between education level and search precision</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 6: Formulating a Research Problem (Part 2) -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-formulating-problem')">
+                        <h3><i class="fa-solid fa-file-signature" style="color: #ec4899; margin-right: 10px;"></i>
+                            Module 6: Formulating a Research Problem (Part 2)</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-formulating-problem">
+                        <div class="content-block">
+                            <h4>21) Research Process Overview</h4>
+                            <p>Research follows structured steps:</p>
+                            <ul class="styled-list">
+                                <li>Select research problem</li>
+                                <li>Formulate problem statement</li>
+                                <li>Select research design</li>
+                                <li>Collect data</li>
+                                <li>Analyze & interpret data</li>
+                                <li>Report writing</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>22) What is a Research Problem?</h4>
+                            <p>It is the starting point of research. Defines what you will study and why. A topic alone
+                                is not enough—you need a clear, focused problem.</p>
+                            <div class="alert-box">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <span><strong>A research problem statement is:</strong> Brief, Precise, Focused,
+                                    Describes the issue to be investigated.</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>23) Purpose of a Research Problem Statement</h4>
+                            <ul class="styled-list">
+                                <li>Place the problem in context</li>
+                                <li>Explain importance</li>
+                                <li>Identify knowledge gaps</li>
+                                <li>Show implications of the study</li>
+                                <li>Guide research questions and hypotheses</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>24) & 25) Key Elements & Importance</h4>
+                            <div class="comparison-grid">
+                                <div class="compare-box">
+                                    <h5>Key Elements</h5>
+                                    <ul class="styled-list">
+                                        <li>Contextualization (background)</li>
+                                        <li>Clear description</li>
+                                        <li>Significance</li>
+                                        <li>Scope (boundaries)</li>
+                                        <li>Potential impact</li>
+                                    </ul>
+                                </div>
+                                <div class="compare-box">
+                                    <h5>Importance</h5>
+                                    <ul class="styled-list">
+                                        <li>Gives focus and direction</li>
+                                        <li>Clarifies research purpose</li>
+                                        <li>Justifies why research is needed</li>
+                                        <li>Foundation for questions, objectives, methodology</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>26) & 27) Steps & Components</h4>
+                            <p><strong>Steps:</strong> State problem clearly, Identify variables, Define variables
+                                operationally, Develop hypotheses, Form research questions, Evaluate feasibility.</p>
+                            <p style="margin-top: 1rem;"><strong>Components:</strong></p>
+                            <div class="tags-container">
+                                <span class="tag">Purpose of study</span>
+                                <span class="tag">Significance</span>
+                                <span class="tag">Research questions</span>
+                                <span class="tag">Hypotheses</span>
+                                <span class="tag">Operational definitions</span>
+                                <span class="tag">Scope & limitations</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>28) & 29) Purpose Statement & Research Significance</h4>
+                            <p><strong>Purpose Statement:</strong> Explains what the study will do. Must specify: Topic,
+                                Population, Setting. Can focus on: Exploration, Relationships, Effects.</p>
+                            <p style="margin-top: 1rem;"><strong>Significance (Justification):</strong> Explains why the
+                                study matters and what contribution it makes. Based on: Gaps in previous research,
+                                Importance of issue, Theoretical support.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>30) & 31) Research Questions & Characteristics</h4>
+                            <p>Central questions guiding research. Types:</p>
+                            <div class="grid-cards">
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-circle-question text-primary"></i>
+                                    <h5>Descriptive</h5>
+                                    <p>What is happening?</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-link text-primary"></i>
+                                    <h5>Relational</h5>
+                                    <p>Relationship between variables</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fa-solid fa-arrow-trend-up text-primary"></i>
+                                    <h5>Causal</h5>
+                                    <p>Cause-effect relationships</p>
+                                </div>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Characteristics of Good Questions:</strong> Clear and
+                                specific, Feasible, Relevant, Balanced (not too broad/narrow), Testable/arguable. (Not
+                                yes/no).</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>32) Hypotheses</h4>
+                            <p>Testable predictions based on theory and prior knowledge, not random guesses. Must be
+                                measurable and testable.</p>
+                            <div class="alert-box"
+                                style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #10b981;">
+                                <i class="fa-solid fa-flask"></i>
+                                <span><strong>Example:</strong> "Sun exposure increases happiness"</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>33) Variables</h4>
+                            <p>Variables = measurable characteristics.</p>
+                            <ul class="styled-list">
+                                <li><strong>Independent variable</strong> → cause</li>
+                                <li><strong>Dependent variable</strong> → effect</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Operational Definition:</strong> Defines how a variable
+                                is measured. Ensures Clarity, Consistency, Replicability.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>34) & 35) Limitations & Literature Review Role</h4>
+                            <p><strong>Limitations:</strong> Must be acknowledged (Time constraints, Financial limits,
+                                Early-stage research). Avoid exaggerating research value.</p>
+                            <p style="margin-top: 1rem;"><strong>Literature Review Role:</strong> Identify what is
+                                known, Find research gaps, Refine problem, Understand theoretical approaches.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>36), 37) & 38) Research Proposal</h4>
+                            <p><strong>Definition:</strong> A detailed plan of research including what, why, how, and
+                                expected results.</p>
+                            <p><strong>Purpose:</strong> Convince others that the idea is valuable, you understand the
+                                field, and you can complete the study.</p>
+                            <p style="margin-top: 1rem;"><strong>Components:</strong> Title & abstract, Introduction,
+                                Problem statement, Literature review, Methodology, Project plan, Conclusion, References.
+                            </p>
+                            <div class="timeline" style="border-left-color: #ec4899; margin-top: 1rem;">
+                                <div class="time-step" style="--dot-color: #ec4899;">Chapter 1 → Introduction & problem
+                                </div>
+                                <div class="time-step" style="--dot-color: #ec4899;">Chapter 2 → Literature review</div>
+                                <div class="time-step" style="--dot-color: #ec4899;">Chapter 3 → Methodology</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 7: Selecting a Research Design Strategy (Part 1) -->
+                <div class="unit-card glass-panel">
+                    <div class="unit-header" onclick="toggleUnit('mod-research-design')">
+                        <h3><i class="fa-solid fa-pen-ruler" style="color: #06b6d4; margin-right: 10px;"></i> Module 7:
+                            Selecting a Research Design Strategy (Part 1)</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-research-design">
+                        <div class="content-block">
+                            <h4>39) What is Research Design?</h4>
+                            <p>The overall plan/blueprint of research. Determines how data is collected and how it is
+                                analyzed.</p>
+                            <div class="alert-box"
+                                style="background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.3); color: #06b6d4;">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                                <span><strong>Difference:</strong> Design = structure | Methodology = detailed
+                                    procedures</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>40) Types of Research (Major Classifications)</h4>
+                            <div style="overflow-x: auto;">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Type A</th>
+                                            <th>Type B / C</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Basic</strong></td>
+                                            <td>Applied / Evaluation</td>
+                                            <td>Basic → new knowledge; Applied → solve problems; Evaluation → assess
+                                                effectiveness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Exploratory</strong></td>
+                                            <td>Conclusive</td>
+                                            <td>Exploratory → early stage, flexible; Conclusive → structured,
+                                                quantitative</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Exploratory</strong></td>
+                                            <td>Descriptive / Causal</td>
+                                            <td>Understand problem vs Describe characteristics vs Cause-effect</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Conceptual</strong></td>
+                                            <td>Empirical</td>
+                                            <td>Theory-based vs Data-based observation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Applied</strong></td>
+                                            <td>Fundamental</td>
+                                            <td>Practical solutions vs Expand knowledge</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Descriptive</strong></td>
+                                            <td>Analytical</td>
+                                            <td>What is happening vs Why/how it happens</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Quantitative</strong></td>
+                                            <td>Qualitative</td>
+                                            <td>Numbers/statistics vs Meanings/experiences</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Cross-sectional</strong></td>
+                                            <td>Longitudinal</td>
+                                            <td>One point in time vs Over time</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Clinical</strong></td>
+                                            <td>Diagnostic</td>
+                                            <td>Study diseases/treatments vs Test accuracy of diagnosis</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>41) & 42) Design vs Methodology & Components</h4>
+                            <p><strong>Methodology:</strong> how data is collected & analyzed. <strong>Design:</strong>
+                                overall strategy/structure. Design depends on research problem.</p>
+                            <p style="margin-top: 1rem;"><strong>Methodology Components:</strong></p>
+                            <ul class="styled-list">
+                                <li>Research design model</li>
+                                <li>Sample/participants</li>
+                                <li>Data collection methods</li>
+                                <li>Data analysis techniques</li>
+                                <li>Interpretation (discussion)</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>43) Good Research Design Characteristics</h4>
+                            <div class="tags-container">
+                                <span class="tag">Minimizes bias</span>
+                                <span class="tag">Maximizes reliability</span>
+                                <span class="tag">Provides max info</span>
+                                <span class="tag">Reduces error</span>
+                                <span class="tag">Covers multiple aspects</span>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4>44) & 45) Main Categories & Choosing a Design</h4>
+                            <p><strong>Main Categories:</strong> Exploratory, Descriptive, Causal, Experimental,
+                                Quasi-experimental, Ex post facto.</p>
+                            <p style="margin-top: 1rem;"><strong>Choosing a Research Design Depends on:</strong>
+                                Research objectives, Nature of problem, Existing knowledge level.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 8: Revision & Most Important -->
+                <div class="unit-card glass-panel highlight-card">
+                    <div class="unit-header" onclick="toggleUnit('mod-revision')">
+                        <h3><i class="fa-solid fa-star" style="color: #fbbf24; margin-right: 10px;"></i> Module 8: EXAM
+                            REVISION SHEET</h3>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="unit-content" id="mod-revision">
+                        <div class="content-block">
+                            <h4 class="text-danger" style="display: flex; align-items: center; gap: 10px;"><i
+                                    class="fa-solid fa-fire"></i> MOST IMPORTANT EXAM QUESTIONS</h4>
+                            <div class="key-points"
+                                style="border-left-color: var(--danger); background: rgba(239, 68, 68, 0.1);">
+                                <ul class="styled-list">
+                                    <li><strong>Memorize Definitions:</strong> Research, Knowledge, Fact, Hypothesis,
+                                        Theory, Law, Research problem.</li>
+                                    <li><strong>Comparisons to know:</strong> Theory vs Law, Hypothesis vs Prediction,
+                                        Inductive vs Deductive, Practical vs Theoretical.</li>
+                                    <li><strong>Lists:</strong> 4 scientific purposes, Research steps, Researcher
+                                        characteristics, Finding topics.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h4 style="display: flex; align-items: center; gap: 10px; color: #fbbf24;"><i
+                                    class="fa-solid fa-stopwatch"></i> 5-MINUTE REVISION</h4>
+                            <ul class="styled-list">
+                                <li><strong>Research</strong> = systematic investigation</li>
+                                <li><strong>4 purposes</strong> = Explore, Describe, Explain, Predict</li>
+                                <li><strong>Concepts:</strong> Fact (true observation), Hypothesis (testable
+                                    assumption), Theory (why), Law (what)</li>
+                                <li><strong>Reasoning:</strong> Inductive (specific → general), Deductive (general →
+                                    specific)</li>
+                                <li><strong>Problem:</strong> Gap in knowledge</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam Center Section -->
+        <section id="exam" class="view-section hidden">
+            <div id="exam-setup" class="glass-panel text-center">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Readiness Assessment</h2>
+                <p>You will be tested on MCQs, True/False, and Fill-in-the-Blank questions.</p>
+                <div class="exam-stats">
+                    <div class="stat-badge"><i class="fa-solid fa-list-ol"></i> 104 Questions</div>
+                    <div class="stat-badge"><i class="fa-solid fa-clock"></i> Untimed</div>
+                    <div class="stat-badge"><i class="fa-solid fa-star"></i> Passing: 70%</div>
+                </div>
+                <button class="btn btn-primary start-btn" onclick="startExam()">Begin Exam</button>
+            </div>
+
+            <div id="exam-interface" class="hidden">
+                <div class="progress-container glass-panel">
+                    <div class="progress-header">
+                        <span id="question-counter">Question 1 / 104</span>
+                        <span id="score-live">Score: 0</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="question-container glass-panel">
+                    <span class="question-type-badge" id="q-type-badge">Multiple Choice</span>
+                    <h3 id="question-text">Question text goes here?</h3>
+
+                    <div id="options-container" class="options-grid">
+                        <!-- Options injected via JS -->
+                    </div>
+
+                    <div id="fib-container" class="hidden">
+                        <input type="text" id="fib-input" placeholder="Type your answer here..." autocomplete="off">
+                    </div>
+
+                    <div class="feedback-area hidden" id="feedback-area">
+                        <!-- Feedback injected here -->
+                    </div>
+
+                    <div class="exam-controls">
+                        <button class="btn btn-secondary" id="submit-btn" onclick="submitAnswer()">Submit
+                            Answer</button>
+                        <button class="btn btn-primary hidden" id="next-btn" onclick="nextQuestion()">Next Question <i
+                                class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="exam-results" class="glass-panel text-center hidden">
+                <div class="result-circle">
+                    <svg viewBox="0 0 36 36" class="circular-chart">
+                        <path class="circle-bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle" id="result-circle-path" stroke-dasharray="0, 100" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <text x="18" y="20.35" class="percentage" id="result-percentage">0%</text>
+                    </svg>
+                </div>
+                <h2 id="result-message">Great Job!</h2>
+                <p id="result-details">You scored 15 out of 20.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-secondary" onclick="resetExam()"><i class="fa-solid fa-rotate-right"></i>
+                        Retake Exam</button>
+                    <button class="btn btn-primary" onclick="showSection('learn', event)"><i
+                            class="fa-solid fa-book"></i> Review Notes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer glass-panel text-center" style="margin: 2rem auto; max-width: 1200px; padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+        <p style="margin: 0; font-size: 1.1rem; letter-spacing: 0.5px; font-weight: 300;">
+            This Course was created by <strong style="color: var(--primary); font-weight: 600;">Rasha Alomari</strong>
+        </p>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
